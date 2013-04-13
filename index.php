@@ -100,6 +100,7 @@
 								<li><a href="#intro"><i class="icon-align-left"></i> Intro</a></li>
 								<li><a href="#usage"><i class="icon-pencil"></i> Usage</a></li>
 								<li><a href="#demo"><i class="icon-play"></i> Demo</a></li>
+								<li><a href="#methods"><i class="icon-list"></i> Methods</a></li>
 								<li><a href="#license"><i class="icon-briefcase"></i> License</a></li>
 								<li><a href="#credits"><i class="icon-thumbs-up"></i> Credits</a></li>
 							</ul>
@@ -174,6 +175,9 @@
 						Paste an URL of any site that contains Open Graph Protocol microdata and then press
 						"Scrape!". Results will appear on the right.
 					</p>
+					<p>
+						<i><strong>OBS:</strong> If you want, you can use this site (http://www.workster.com.br/simple-scraper/)</i>
+					</p>
 					<form class="form form-inline">
 						<label><strong>URL:</strong> <input id="url" type="url" placeholder="type your URL"/></label>
 						<button id="submit" type="submit" value="Scrape!" class="btn btn-success">Scrape!</button>
@@ -210,7 +214,7 @@
 				</section>
 			</div><!-- .row -->
 <!-- --------------------------------------------------------------------------------------------------------------- -->
-			<div id="demo" class="row">
+			<div id="methods" class="row">
 				<section class="span12">
 					<h2>Methods</h2>
 					<dl class="code">
