@@ -43,7 +43,7 @@ $(function(){
 		return false;
 	});
 	
-	$('ul.nav a, .brand').click(function(event){
+	$('.navscroll a').click(function(event){
 		var $anchor = $(this);
  
         $('html, body').stop().animate({

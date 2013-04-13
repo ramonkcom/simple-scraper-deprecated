@@ -4,8 +4,8 @@ error_reporting(E_ALL);
 require_once 'SimpleScraper.class.php';
 $url = isset($_REQUEST['url']) ? $_REQUEST['url'] : '';
 try {
-	$crawler = new SimpleScraper($url);
-	$data = $crawler->getAllData();
+	$scraper = new SimpleScraper($url);
+	$data = $scraper->getAllData();
 	$response = array(
 		'success' => true,
 		'ogp' => $data['ogp'],
