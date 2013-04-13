@@ -71,12 +71,18 @@
 <html lang="en-US">
 	<head>
 		<meta charset="utf-8"/>
+		<link rel=”canonical” href=”http://www.workster.com.br/simple-scraper/” />
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/jquery.easing.js"></script>
 		<script type="text/javascript" src="js/script.js"></script>
+		<meta property="og:url" content="http://www.workster.com.br/simple-scraper/" />
+		<meta property="og:site_name" content="Simple Scraper" />
+		<meta property="og:title" content="Simple Scraper by Workster" />
+		<meta property="og:description" content="Simple Scraper is a PHP class to scrape Open Graph Protocol and other micro/meta data." />
+		<meta property="og:image" content="http://www.workster.com.br/assets/workster-logo.png" />
 		<title>Simple Scraper Demo</title>
 		<style type="text/css">
 		</style>
@@ -201,6 +207,49 @@
 							</div>
 						</div>
 					</div><!-- .tabbable -->
+				</section>
+			</div><!-- .row -->
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+			<div id="demo" class="row">
+				<section class="span12">
+					<h2>Methods</h2>
+					<dl class="code">
+						<dt><code>array SimpleScraper::getOGP(void)</code></dt>
+						<dd>
+							Returns an array containing OGP meta values. 
+							The array is indexed by the property attribute of the meta tag.
+						</dd>
+						<dt><code>array SimpleScraper::getTwitter(void)</code></dt>
+						<dd>
+							Returns an array containing Twitter meta values. 
+							The array is indexed by the name attribute of the meta tag.
+						</dd>
+						<dt><code>array SimpleScraper::getMeta(void)</code></dt>
+						<dd>
+							Returns an array containing non OGP and non TwitterCard meta values. 
+							The array is indexed by the name attribute of the meta tag.
+						</dd>
+						<dt><code>array SimpleScraper::getAllData(void)</code></dt>
+						<dd>
+							Returns an array containing three arrays. The indexes are 'ogp', 'twitter' and 'meta' and
+							they correspond to the arrays returned by <code>SimpleScraper::getOGP(void)</code>,
+							<code>SimpleScraper::getTwitter(void)</code> and <code>SimpleScraper::getMeta(void)</code>
+							respectively.
+						</dd>
+						<dt><code>string SimpleScraper::getHTTPCode(void)</code></dt>
+						<dd>
+							Returns the HTTP code of the response that SimpleScraper got when crawled the URL.
+						</dd>
+						<dt><code>string SimpleScraper::getContentType(void)</code></dt>
+						<dd>
+							Returns the MIME type of the response that SimpleScraper got when crawled the URL.
+						</dd>
+						<dt><code>string SimpleScraper::getContent(void)</code></dt>
+						<dd>
+							Returns the content of the response that SimpleScraper got when crawled the URL.
+							Notice that this can be other MIME types other than 'text/html'.
+						</dd>
+					</dl>
 				</section>
 			</div><!-- .row -->
 <!-- --------------------------------------------------------------------------------------------------------------- -->

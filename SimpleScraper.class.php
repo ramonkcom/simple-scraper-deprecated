@@ -20,7 +20,7 @@ class SimpleScraper {
 	private
 		$contentType,
 		$data,
-		$HTML,
+		$content,
 		$HTTPCode,
 		$URL;
 	
@@ -47,34 +47,36 @@ class SimpleScraper {
 		$this->URL = $URL;
 		
 		$this->fetchResource();
-		
-		libxml_use_internal_errors(true);
-		$dom = new DOMDocument(null, 'UTF-8');
-		$dom->loadHTML($this->HTML);
-		$metaTags = $dom->getElementsByTagName('meta');
-
-		for ($i=0; $i<$metaTags->length; $i++) {
-			$attributes = $metaTags->item($i)->attributes;
-			$attrArray = array();
-			foreach ($attributes as $attr) $attrArray[$attr->nodeName] = $attr->nodeValue;
-			
-			if (
-				array_key_exists('property', $attrArray) && 
-				preg_match('~og:([a-zA-Z:_]+)~', $attrArray['property'], $matches)
-			) {
-				$this->data['ogp'][$matches[1]] = $attrArray['content'];
-			} else if (
-				array_key_exists('name', $attrArray) &&
-				preg_match('~twitter:([a-zA-Z:_]+)~', $attrArray['name'], $matches)
-			) {
-				$this->data['twitter'][$matches[1]] = $attrArray['content'];
-			} else if (
-				array_key_exists('name', $attrArray) &&
-				array_key_exists('content', $attrArray)
-			) {
-				$this->data['meta'][$attrArray['name']] = $attrArray['content'];
+		if ($this->contentType == 'text/html') {
+			libxml_use_internal_errors(true);
+			$dom = new DOMDocument(null, 'UTF-8');
+			$dom->loadHTML($this->content);
+			$metaTags = $dom->getElementsByTagName('meta');
+	
+			for ($i=0; $i<$metaTags->length; $i++) {
+				$attributes = $metaTags->item($i)->attributes;
+				$attrArray = array();
+				foreach ($attributes as $attr) $attrArray[$attr->nodeName] = $attr->nodeValue;
+				
+				if (
+					array_key_exists('property', $attrArray) && 
+					preg_match('~og:([a-zA-Z:_]+)~', $attrArray['property'], $matches)
+				) {
+					$this->data['ogp'][$matches[1]] = $attrArray['content'];
+				} else if (
+					array_key_exists('name', $attrArray) &&
+					preg_match('~twitter:([a-zA-Z:_]+)~', $attrArray['name'], $matches)
+				) {
+					$this->data['twitter'][$matches[1]] = $attrArray['content'];
+				} else if (
+					array_key_exists('name', $attrArray) &&
+					array_key_exists('content', $attrArray)
+				) {
+					$this->data['meta'][$attrArray['name']] = $attrArray['content'];
+				}
 			}
 		}
+		
 	}
 	
 /*===========================================================================*/
@@ -100,8 +102,8 @@ class SimpleScraper {
 	 * 
 	 * @return string
 	 */
-	public function getHTML() {
-		return $this->HTML;
+	public function getContent() {
+		return $this->content;
 	}
 	
 	/**
@@ -147,7 +149,7 @@ class SimpleScraper {
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 		curl_setopt($ch, CURLOPT_MAXREDIRS, 10);
 		curl_setopt($ch, CURLOPT_TIMEOUT, 30); // times out after 30s
-		$this->HTML = curl_exec($ch);
+		$this->content = curl_exec($ch);
 		$info = curl_getinfo($ch);
 		curl_close($ch);
 		
