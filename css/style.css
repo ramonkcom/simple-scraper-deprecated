@@ -1,0 +1,51 @@
+/*============================================================================*/
+/*= BASE
+/*============================================================================*/
+body {
+	padding-top: 70px;
+	padding-bottom: 70px;
+}
+h2 {
+	margin-bottom: 20px;
+}
+h3 {
+	color: #aaa;
+	font-size: 18px;
+}
+.row {
+	padding: 20px 0px;
+	border-bottom: 1px solid #eee;
+}
+.row-nav {
+	padding: 0px 0px;
+	border: none;	
+}
+.hero-unit {
+	text-align: center;
+}
+.hero-unit h1 {
+	margin-bottom: 20px;
+}
+.hero-unit p {
+	margin-bottom: 20px;
+}
+/*============================================================================*/
+/*= COMPONENTS
+/*============================================================================*/
+/*------------------------------------------------------------------*/
+/*= #scraped
+/*------------------------------------------------------------------*/
+#scraped {
+	overflow: hidden;
+}
+#image-wrap {
+	float: left;
+	height: 110px;
+	margin: 0;
+	margin-right: 15px;
+	overflow: hidden;
+	width: 110px;
+}
+#image {
+	max-width: 110px
+}
