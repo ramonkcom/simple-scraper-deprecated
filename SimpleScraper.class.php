@@ -7,7 +7,7 @@
 | Author        : Ramon Kayo                                                |
 | Email         : ramaismon@gmail.com                                       |
 | License       : Distributed under the MIT License                         |
-| Full license  : http://www.workster.com.br/simple-scraper                 |
+| Full license  : http://www.workster.com.br/simple-scraper/license.txt     |
 +---------------------------------------------------------------------------+
 | "Have the courage to follow your heart and intuition."                    |
 +---------------------------------------------------------------------------+
