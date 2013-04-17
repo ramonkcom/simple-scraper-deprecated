@@ -11,7 +11,7 @@
 +---------------------------------------------------------------------------+
 | "Have the courage to follow your heart and intuition."                    |
 +---------------------------------------------------------------------------+
-| Last modified : 12/April/2013                                             |
+| Last modified : 16/April/2013                                             |
 +---------------------------------------------------------------------------+
 */
 
@@ -21,30 +21,30 @@ class SimpleScraper {
 		$contentType,
 		$data,
 		$content,
-		$HTTPCode,
-		$URL;
+		$httpCode,
+		$url;
 	
 /*===========================================================================*/
 // CONSTRUCTOR
 /*===========================================================================*/
 	/**
 	 * 
-	 * @param string $URL
+	 * @param string $url
 	 * @throws Exception
 	 */
-	public function __construct($URL) {
+	public function __construct($url) {
 		$this->data = array(
 			'ogp' => array(),
 			'twitter' => array(),
 			'meta' => array()
 		);
 		
-		$URLPattern = '/\(?\b(?:(http|https|ftp):\/\/)?((?:www.)?[a-zA-Z0-9\-\.]+[\.][a-zA-Z]{2,4}|localhost(?=\/)|\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})(?::(\d*))?(?=[\s\/,\.\)])([\/]{1}[^\s\?]*[\/]{1})*(?:\/?([^\s\n\?\[\]\{\}\#]*(?:(?=\.)){1}|[^\s\n\?\[\]\{\}\.\#]*)?([\.]{1}[^\s\?\#]*)?)?(?:\?{1}([^\s\n\#\[\]\(\)]*))?([\#][^\s\n]*)?\)?/';
-		if (!is_string($URL))
+		$urlPattern = '/\(?\b(?:(http|https|ftp):\/\/)?((?:www.)?[a-zA-Z0-9\-\.]+[\.][a-zA-Z]{2,4}|localhost(?=\/)|\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})(?::(\d*))?(?=[\s\/,\.\)])([\/]{1}[^\s\?]*[\/]{1})*(?:\/?([^\s\n\?\[\]\{\}\#]*(?:(?=\.)){1}|[^\s\n\?\[\]\{\}\.\#]*)?([\.]{1}[^\s\?\#]*)?)?(?:\?{1}([^\s\n\#\[\]\(\)]*))?([\#][^\s\n]*)?\)?/';
+		if (!is_string($url))
 			throw new Exception("Argument 'url' is invalid. Not a string.");
-		if (!(preg_match($URLPattern, $URL)))
+		if (!(preg_match($urlPattern, $url)))
 			throw new Exception("Argument 'url' is invalid. Not a URL.");
-		$this->URL = $URL;
+		$this->url = $url;
 		
 		$this->fetchResource();
 		libxml_use_internal_errors(true);
@@ -108,8 +108,8 @@ class SimpleScraper {
 	 *
 	 * @return string
 	 */
-	public function getHTTPCode() {
-		return $this->HTTPCode;
+	public function getHttpCode() {
+		return $this->httpCode;
 	}
 	
 	/**
@@ -124,7 +124,7 @@ class SimpleScraper {
 	 *
 	 * @return array
 	 */
-	public function getOGP() {
+	public function getOgp() {
 		return $this->data['ogp'];
 	}
 	
@@ -142,7 +142,7 @@ class SimpleScraper {
 	private function fetchResource() {
 		$ch = curl_init();
 		curl_setopt($ch,CURLOPT_USERAGENT,'Mozilla/5.0 (compatible; SimpleScraper)');
-		curl_setopt($ch, CURLOPT_URL, $this->URL);
+		curl_setopt($ch, CURLOPT_URL, $this->url);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 		curl_setopt($ch, CURLOPT_MAXREDIRS, 10);
@@ -151,11 +151,11 @@ class SimpleScraper {
 		$info = curl_getinfo($ch);
 		curl_close($ch);
 		
-		$this->HTTPCode = $info['http_code'];
+		$this->httpCode = $info['http_code'];
 		$this->contentType = $info['content_type'];
 		
-		if (((int) $this->HTTPCode) >= 400) {
-			throw new Exception('STATUS CODE: ' . $this->HTTPCode);
+		if (((int) $this->httpCode) >= 400) {
+			throw new Exception('STATUS CODE: ' . $this->httpCode);
 		}
 	}	
 }

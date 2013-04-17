@@ -218,7 +218,7 @@
 				<section class="span12">
 					<h2>Methods</h2>
 					<dl class="code">
-						<dt><code>array SimpleScraper::getOGP(void)</code></dt>
+						<dt><code>array SimpleScraper::getOgp(void)</code></dt>
 						<dd>
 							Returns an array containing OGP meta values. 
 							The array is indexed by the property attribute of the meta tag.
@@ -240,7 +240,7 @@
 							<code>SimpleScraper::getTwitter(void)</code> and <code>SimpleScraper::getMeta(void)</code>
 							respectively.
 						</dd>
-						<dt><code>string SimpleScraper::getHTTPCode(void)</code></dt>
+						<dt><code>string SimpleScraper::getHttpCode(void)</code></dt>
 						<dd>
 							Returns the HTTP code of the response that SimpleScraper got when crawled the URL.
 						</dd>
