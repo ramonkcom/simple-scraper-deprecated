@@ -1,6 +1,6 @@
 Simple Scraper (SimpleScraper.class.php)                                     
 ==========================================
-**Please, for documentation visit:** http://code.ramonkayo.com/simple-scraper/
+**For documentation, please visit:** http://code.ramonkayo.com/simple-scraper/
 
 Copyright (c) 2013-2014 Ramon Kayo                                                
 -----------------------------
@@ -23,4 +23,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 IN THE SOFTWARE.
 
-**Please, for documentation visit:** http://code.ramonkayo.com/simple-scraper/
+**For documentation, please visit:** http://code.ramonkayo.com/simple-scraper/
