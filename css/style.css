@@ -38,6 +38,15 @@ body {
 	border-bottom: 1px dashed #ccc;
 	padding: 40px 0px;
 }
+#cta {
+	background: url('../img/white-paper.png');
+}
+#cta-button {
+	font-size: 1.6em;
+}
+#heroshot {
+	background: url('../img/white-paper.png');
+}
 #home {
 	padding-top: 20px;
 }
@@ -56,18 +65,17 @@ body {
 	overflow: hidden;
 	width: 110px;
 }
-.social {
-	background: url('../img/bg.png');
+#social {
+	background: url('../img/white-paper.png');
 	text-align: center;
 }
 .social-facebook {
 	position: relative;
 	top: -5px;
 }
-.social-title {
-	display: inline-block;
+#social-title {
 	margin: 0;
-	margin-right: 20px;
+	margin-bottom: 20px;
 }
 #variables-content {
 	margin-top: 20px;
@@ -76,6 +84,11 @@ body {
 /* Media Query
 /*----------------------------------------------------------------------------*/
 @media (min-width: 768px) {
+	#social-title {
+		display: inline-block;
+		margin: 0;
+		margin-right: 20px;
+	}
 }
 @media (min-width: 992px) {
 }

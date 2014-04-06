@@ -1,6 +1,8 @@
 Simple Scraper (SimpleScraper.class.php)                                     
 ==========================================
-Copyright (c) 2013 Ramon Kayo                                                
+**Please, for documentation visit:** http://code.ramonkayo.com/simple-scraper/
+==========================================
+Copyright (c) 2013-2014 Ramon Kayo                                                
 -----------------------------
                                                                              
 Permission is hereby granted, free of charge, to any person obtaining a
@@ -21,4 +23,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 IN THE SOFTWARE.
 
-**Please, for documentation visit:** http://www.workster.com.br/simple-scraper/
+**Please, for documentation visit:** http://code.ramonkayo.com/simple-scraper/

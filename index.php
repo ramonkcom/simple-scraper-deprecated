@@ -74,9 +74,9 @@ $description = "Simple Scraper is a PHP class to scrape Open Graph Protocol and 
 ?>
 <!DOCTYPE html>
 <html lang="en-US" xmlns:fb="http://ogp.me/ns/fb#">
-<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+<head>
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
-	<meta charset="utf-8"/>
 	<link rel="canonical" href="http://code.ramonkayo.com/simple-scraper/" />
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
 	<link rel="stylesheet" type="text/css" href="css/style.css"/>
@@ -84,6 +84,7 @@ $description = "Simple Scraper is a PHP class to scrape Open Graph Protocol and 
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/jquery.easing.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
+	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<meta name="description" content="<?php echo $description ?>">
 	<meta name="keywords" content="scrape, scraper, simple scraper, facebook scrape, twitter scrape, microdata, metadata, meta, plugin, php">
@@ -106,6 +107,7 @@ $description = "Simple Scraper is a PHP class to scrape Open Graph Protocol and 
 			fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));
 	</script>
+<!-- --------------------------------------------------------------------------------------------------------------- -->
 	<nav class="main-nav navbar navbar-default navbar-fixed-top" role="navigation">
 		<div class="container">
 			<div class="row">
@@ -139,14 +141,14 @@ $description = "Simple Scraper is a PHP class to scrape Open Graph Protocol and 
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12">
-					<header class="jumbotron centered">
+					<header id="heroshot" class="jumbotron centered">
 						<h1>Simple Scraper</h1>
 						<p>
 							A PHP class to fetch Open Graph Protocol data,
 							Twitter Card data and/or meta tags data.
 						</p>
 						<a href="https://github.com/ramonkayo/simple-scraper" target="_blank" class="btn btn-lg btn-success">
-							Download from GitHub
+							<span class="glyphicon glyphicon-cloud-download"></span> Download from GitHub
 						</a>
 					</header>
 				</div><!-- .col -->
@@ -194,11 +196,11 @@ $description = "Simple Scraper is a PHP class to scrape Open Graph Protocol and 
 		</div><!-- .container -->
 	</section><!-- #home -->
 <!-- --------------------------------------------------------------------------------------------------------------- -->
-	<section class="content-section social">
+	<section class="content-section" id="social">
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12">
-					<h2 class="social-title">Show your love!</h2>
+					<h2 id="social-title">Recommend it:</h2>
 					<span class="social-item social-facebook">
 						<fb:like href="http://code.ramonkayo.com/simple-scraper/" layout="button_count" action="like" show_faces="false" share="false"></fb:like>
 					</span><!-- .social-facebook -->
@@ -336,6 +338,16 @@ $description = "Simple Scraper is a PHP class to scrape Open Graph Protocol and 
 		</div><!-- .container -->
 	</section><!-- #api -->
 <!-- --------------------------------------------------------------------------------------------------------------- -->
+	<section class="content-section" id="cta">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 centered">
+					<a href="#social" id="cta-button" class="btn btn-lg btn-info"><span class="glyphicon glyphicon-thumbs-up"></span> Like it?</a>
+				</div><!-- .col -->
+			</div><!-- .row -->
+		</div><!-- .container -->
+	</section><!-- #social -->
+<!-- --------------------------------------------------------------------------------------------------------------- -->
 	<section class="content-section" id="license">
 		<div class="container">
 			<div class="row">
@@ -400,6 +412,7 @@ $description = "Simple Scraper is a PHP class to scrape Open Graph Protocol and 
 			<div class="row">
 				<div class="col-xs-12">
 					<h2>Discussion</h2>
+					<div id="disqus_thread"></div>
 					<script type="text/javascript">
 				        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
 				        var disqus_shortname = 'coderamonkayocom'; // required: replace example with your forum shortname
@@ -411,8 +424,8 @@ $description = "Simple Scraper is a PHP class to scrape Open Graph Protocol and 
 				            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 				        })();
 				    </script>
-				    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-				    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    				<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    				<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 				</div><!-- .col -->
 			</div><!-- .row -->
 		</div><!-- .container -->

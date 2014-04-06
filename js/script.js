@@ -44,7 +44,7 @@ $(function(){
 		return false;
 	});
 	
-	$('.main-nav-link, .navbar-brand').click(function(event){
+	$('.main-nav-link, .navbar-brand, #cta-button').click(function(event){
 		var anchor = $(this);
         $('html, body').stop().animate({
             scrollTop: $(anchor.attr('href')).offset().top - 50
