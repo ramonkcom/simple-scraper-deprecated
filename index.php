@@ -1,5 +1,6 @@
-<?php 
-	$html = '
+<?php
+date_default_timezone_set('America/Sao_Paulo');
+$html = '
     &lt;div id="scraped"&gt;
         &lt;figure&gt;
             &lt;img id="image" src="img/image.jpg"&gt;
@@ -13,8 +14,8 @@
         &lt;p id="description"&gt;... and description here&lt;/p&gt;
     &lt;/div&gt;
 	';
-	
-	$javascript = '
+
+$javascript = '
     &lt;script type="text/javascript" src="js/jquery.min.js"&gt;
     &lt;/script&gt;
     &lt;script type="text/javascript"&gt;
@@ -42,9 +43,9 @@
     });
     &lt;/script&gt;
 	';
-	
-	$php = '
-    &lt;?php 
+
+$php = '
+    &lt;?php
         //doscrape.php
         require_once \'SimpleScraper.class.php\';
         $url = isset($_REQUEST[\'url\']) ? $_REQUEST[\'url\'] : \'\';
@@ -63,161 +64,237 @@
                 \'log\' =&gt; "$e"
             );
         }
-        echo json_encode($response); 
+        echo json_encode($response);
     ?&gt;
 	';
+
+$title = "Simple Scraper by Ramon Kayo";
+$description = "Simple Scraper is a PHP class to scrape Open Graph Protocol and other micro/meta data.";
+
 ?>
 <!DOCTYPE html>
-<html lang="en-US">
-	<head>
-		<meta charset="utf-8"/>
-		<link rel=”canonical” href=”http://www.workster.com.br/simple-scraper/” />
-		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
-		<link rel="stylesheet" type="text/css" href="css/style.css"/>
-		<script type="text/javascript" src="js/jquery.min.js"></script>
-		<script type="text/javascript" src="js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="js/jquery.easing.js"></script>
-		<script type="text/javascript" src="js/script.js"></script>
-		<meta property="og:url" content="http://www.workster.com.br/simple-scraper/" />
-		<meta property="og:site_name" content="Simple Scraper" />
-		<meta property="og:title" content="Simple Scraper by Workster" />
-		<meta property="og:description" content="Simple Scraper is a PHP class to scrape Open Graph Protocol and other micro/meta data." />
-		<meta property="og:image" content="http://www.workster.com.br/assets/workster-logo.png" />
-		<title>Simple Scraper Demo</title>
-		<style type="text/css">
-		</style>
-	</head>
-	<body id="home">
-<!-- ############################################################################################################### -->
-		<div class="navbar navbar-fixed-top">
-			<nav class="navbar-inner">
-				<div class="container">
-					<div class="row row-nav">
-						<div class="span12 navscroll">
-							<a class="brand" href="#home">Simple Scraper</a>
-							<ul class="nav pull-right">
-								<li><a href="#home"><i class="icon-home"></i> Home</a></li>
-								<li><a href="#intro"><i class="icon-align-left"></i> Intro</a></li>
-								<li><a href="#usage"><i class="icon-pencil"></i> Usage</a></li>
-								<li><a href="#demo"><i class="icon-play"></i> Demo</a></li>
-								<li><a href="#methods"><i class="icon-list"></i> Methods</a></li>
-								<li><a href="#license"><i class="icon-briefcase"></i> License</a></li>
-								<li><a href="#credits"><i class="icon-thumbs-up"></i> Credits</a></li>
-							</ul>
-						</div><!-- .span12 -->
-					</div><!-- .row -->
-				</div><!-- .container -->
-			</nav><!-- navbar-inner -->
-		</div><!-- navbar -->
-<!-- ############################################################################################################### -->
+<html lang="en-US" xmlns:fb="http://ogp.me/ns/fb#">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
+	<meta charset="utf-8"/>
+	<link rel="canonical" href="http://code.ramonkayo.com/simple-scraper/" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easing.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="description" content="<?php echo $description ?>">
+	<meta name="keywords" content="scrape, scraper, simple scraper, facebook scrape, twitter scrape, microdata, metadata, meta, plugin, php">
+	<meta property="fb:profile_id" content="100006394837452"/> 
+	<meta property="og:url" content="http://code.ramonkayo.com/simple-scraper/" />
+	<meta property="og:site_name" content="<?php echo $title ?>" />
+	<meta property="og:type" content="article"/> 
+	<meta property="og:article:author" content="http://www.facebook.com/ramonztro"/> 
+	<meta property="og:title" content="<?php echo $title ?>" />
+	<meta property="og:description" content="<?php echo $description ?>" />
+	<meta property="og:image" content="http://code.ramonkayo.com/simple-scraper/img/ramonkayo_scrape.jpg" />
+	<title><?php echo $title ?></title>
+</head>
+<body>
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=551918161560361";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
+	<nav class="main-nav navbar navbar-default navbar-fixed-top" role="navigation">
 		<div class="container">
-<!-- --------------------------------------------------------------------------------------------------------------- -->
 			<div class="row">
-				<div class="span12">
-					<header class="hero-unit">
+				<div class="col-xs-12">
+				    <!-- Brand and toggle get grouped for better mobile display -->
+				    <div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-links">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="#home">Simple Scraper</a>
+				    </div><!-- .navbar-header -->
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="main-nav-links">
+						<ul class="nav navbar-nav">
+							<li><a class="main-nav-link" href="#demo"><span class="glyphicon glyphicon-play"></span> Demo</a></li>
+							<li><a class="main-nav-link" href="#usage"><span class="glyphicon glyphicon-pencil"></span> Usage</a></li>
+							<li><a class="main-nav-link" href="#api"><span class="glyphicon glyphicon-list"></span> API</a></li>
+							<li><a class="main-nav-link" href="#license"><span class="glyphicon glyphicon-briefcase"></span> License</a></li>
+							<li><a class="main-nav-link" href="#discussion"><span class="glyphicon glyphicon-comment"></span> Discussion</a></li>
+						</ul><!-- .navbar-nav -->
+					</div><!-- .navbar-collapse -->
+				</div><!-- .col -->
+			</div><!-- .row -->
+		</div><!-- .container -->
+	</nav><!-- .main-nav -->
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+	<section class="content-section" id="home">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<header class="jumbotron centered">
 						<h1>Simple Scraper</h1>
 						<p>
 							A PHP class to fetch Open Graph Protocol data,
 							Twitter Card data and/or meta tags data.
 						</p>
-						<a href="https://github.com/ramaismon/simple-scraper" target="_blank" class="btn btn-large btn-success">
+						<a href="https://github.com/ramonkayo/simple-scraper" target="_blank" class="btn btn-lg btn-success">
 							Download from GitHub
 						</a>
 					</header>
-				</div>
+				</div><!-- .col -->
 			</div><!-- .row -->
-<!-- --------------------------------------------------------------------------------------------------------------- -->
-			<div id="intro" class="row">
-				<section class="span6">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6">
 					<h2>Intro</h2>
 					<p>
+						Wether you're building a crawler tool or a simple post system, you'll probably need this class.
+					</p>
+					<p>
+						You know when you paste a link on a Facebook status, then Facebook sums the content up into a box
+						containing an image, a title and a description? 
+						Simple scraper helps you to do exactly that.
+					</p>
+					<p>
 						This is a class developed in PHP to scrape meta content on demand
-						as Facebook and Twitter do. The class itself, only do the back-end
-						work of fetching the data and the front-end is not included.
-						Anyway, you will find an example in this page that shows both
-						working together.
+						as Facebook and Twitter do. The class itself only do the back-end
+						work (fetchs the data). The front-end is not included, but you will 
+						find an example in this page that shows both working together.
+					</p>
+					<p>
+						Just include the class file and you're good to go!
+					</p>
+				</div><!-- .col -->
+				<div class="col-xs-12 col-sm-6">
+					<h2>About</h2>
+					<p>
+						This is an open source project and it is licensed under the terms of MIT License.
+						Feel free to adapt and redistribute - as long as you don't make commercial use of it.
 					</p>
 					<p>
 						You can contribute to the project by warning me about bugs or
 						forking the project on GitHub.
 					</p>
-					<p>
-						You can adapt it as you prefer, since
-						it is under the terms of MIT License.
-					</p>
-				</section>
-				<section class="span6">
-					<h2>Thank or curse me:</h2>
-					<a class="twitter-timeline" href="https://twitter.com/ramaismon" data-widget-id="322926143655251968">Tweets de @ramaismon</a>
-					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-				</section>
+					<blockquote>
+						<p>
+							Empowerment of individuals is a key part of what makes open source work, since in the end, innovations tend to come from small groups, not from large, structured efforts.
+						</p>
+						<br/>
+						<footer>Tim O'Reilly</footer>
+					</blockquote>
+				</div><!-- .col -->
 			</div><!-- .row -->
+		</div><!-- .container -->
+	</section><!-- #home -->
 <!-- --------------------------------------------------------------------------------------------------------------- -->
-			<div id="usage" class="row">
-				<section class="span12">
-					<h2>Usage</h2>
-					<h3>HTML</h3>
-					<pre><?php echo $html ?></pre>
-                        <h3>JavaScript</h3>
-						<pre><?php echo $javascript ?></pre>
-                        <h3>PHP</h3>
-    					<pre><?php echo $php ?></pre>
-				</section>
+	<section class="content-section social">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<h2 class="social-title">Show your love!</h2>
+					<span class="social-item social-facebook">
+						<fb:like href="http://code.ramonkayo.com/simple-scraper/" layout="button_count" action="like" show_faces="false" share="false"></fb:like>
+					</span><!-- .social-facebook -->
+					<span class="social-item social-twitter">
+						<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://code.ramonkayo.com/simple-scraper/" data-text="Thanks @ramonztro for Simple Scraper!" data-lang="en">Tweetar</a>
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+					</span><!-- .social-twitter -->
+					<span class="social-item social-plus">
+						<div class="g-plusone" data-size="medium" data-annotation="none" data-href="http://code.ramonkayo.com/simple-scraper/"></div>
+						<script type="text/javascript">window.___gcfg = {lang: 'pt-BR'};(function() {var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true; po.src = 'https://apis.google.com/js/platform.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);})();</script>
+					</span><!-- .social-plus -->
+				</div><!-- .col -->
 			</div><!-- .row -->
+		</div><!-- .container -->
+	</section><!-- #social -->
 <!-- --------------------------------------------------------------------------------------------------------------- -->
-			<div id="demo" class="row">
-				<section class="span12">
+	<section class="content-section" id="demo">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
 					<h2>Demo</h2>
-				</section>
-				<section class="span6">
+				</div><!-- .col -->
+			</div><!-- .row -->
+			<div class="row">
+				<div class="col-xs-12 col-sm-6">
 					<h3>Input:</h3>
 					<p>
-						Paste an URL of any site that contains Open Graph Protocol microdata and then press
+						Paste an URL of any site that uses Open Graph Protocol and press
 						"Scrape!". Results will appear on the right.
 					</p>
 					<p>
-						<i><strong>OBS:</strong> If you want, you can use this site (http://www.workster.com.br/simple-scraper/)</i>
+						<i><strong>OBS:</strong> If you want, you can use this site (http://code.ramonkayo.com/simple-scraper)</i>
 					</p>
 					<form class="form form-inline">
-						<label><strong>URL:</strong> <input id="url" type="url" placeholder="type your URL"/></label>
+						<div class="form-group">
+    						<label for="url"><strong>URL:</strong></label>
+    						<input class="form-control" id="url" type="url" placeholder="type your URL" value="http://code.ramonkayo.com/simple-scraper"/>
+  						</div>
 						<button id="submit" type="submit" value="Scrape!" class="btn btn-success">Scrape!</button>
 					</form>
-				</section>
-				<section class="span6">
+				</div><!-- .col -->
+				<div class="col-xs-12 col-sm-6">
 					<h3>Result:</h3>
-					<div class="tabbable">
-						<ul class="nav nav-tabs">
-							<li class="active"><a href="#scraped" data-toggle="tab">Result</a></li>
-							<li><a href="#varcontent" data-toggle="tab">Variable Content</a></li>
-						</ul>
-						<div class="tab-content">
-							<div id="scraped" class="well tab-pane active">
-								<div id="scraped-content">
-									<figure id="image-wrap">
-										<img id="image" src="img/image.jpg">
-									</figure>
-									<div>
-										<h4>
-											<a id="title" href="javascript:void(0)" target="_blank">
-												Title will appear here...
-											</a>
-										</h4>
-										<p id="description">... and description here</p>
-									</div>
+					<!-- Nav tabs -->
+					<ul class="nav nav-tabs">
+  						<li class="active"><a href="#scraped" data-toggle="tab">Scraped</a></li>
+						<li><a href="#variables" data-toggle="tab">Variable Content</a></li>
+					</ul><!-- .nav-tabs -->
+					<!-- Tab panes -->
+					<div class="tab-content">
+  						<div class="tab-pane active" id="scraped">
+  							<div id="scraped-content">
+								<figure id="scraped-content-image-wrap">
+									<img id="scraped-content-image" src="img/example.jpg">
+								</figure>
+								<div>
+									<h4>
+										<a id="scraped-content-title" href="javascript:void(0)" target="_blank">
+											Title will appear here...
+										</a>
+									</h4>
+									<p id="scraped-content-description">... and description here</p>
 								</div>
-							</div>
-							<div id="varcontent" class="tab-pane" >
-								<pre id="dump"></pre>
-							</div>
-						</div>
-					</div><!-- .tabbable -->
-				</section>
+							</div><!-- #scraped-content -->
+  						</div><!-- #scraped -->
+ 						<div class="tab-pane" id="variables">
+  							<pre id="variables-content">Nothing yet. Scrape something.</pre><!-- #variables-content -->
+ 						</div><!-- #variables -->
+					</div><!-- .tab-content -->
+				</div><!-- .col -->
 			</div><!-- .row -->
+		</div><!-- .container -->
+	</section><!-- #demo -->
 <!-- --------------------------------------------------------------------------------------------------------------- -->
-			<div id="methods" class="row">
-				<section class="span12">
-					<h2>Methods</h2>
-					<dl class="code">
+	<section class="content-section" id="usage">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<h2>Usage</h2>
+					<h3>HTML</h3>
+					<pre><?php echo $html ?></pre>
+                    <h3>JavaScript</h3>
+					<pre><?php echo $javascript ?></pre>
+                    <h3>PHP</h3>
+    				<pre><?php echo $php ?></pre>
+				</div><!-- .col -->
+			</div><!-- .row -->
+		</div><!-- .container -->
+	</section><!-- #usage -->
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+	<section class="content-section" id="api">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<h2>API</h2>
+					<dl class="api">
 						<dt><code>array SimpleScraper::getOgp(void)</code></dt>
 						<dd>
 							Returns an array containing OGP meta values. 
@@ -254,17 +331,19 @@
 							Notice that this can be other MIME types other than 'text/html'.
 						</dd>
 					</dl>
-				</section>
+				</div><!-- .col -->
 			</div><!-- .row -->
+		</div><!-- .container -->
+	</section><!-- #api -->
 <!-- --------------------------------------------------------------------------------------------------------------- -->
-			<div id="license" class="row">
-				<section class="span12">
+	<section class="content-section" id="license">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
 					<h2>License</h2>
 					<p>
-						<strong>SimpleScraper.class.php</strong>
-					</p>
-					<p>
-						<strong>Copyright (c) 2013 Ramon Kayo</strong>
+						<strong>SimpleScraper.class.php</strong> -
+						<strong>Copyright (c) 2013-<?php echo date('Y')?> Ramon Kayo</strong>
 					</p>
 					<p>
 						Permission is hereby granted, free of charge, to any person obtaining a copy 
@@ -287,42 +366,57 @@
 						FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS 
 						IN THE SOFTWARE.
 					</p>
-				</section>
+				</div><!-- .col -->
 			</div><!-- .row -->
+		</div><!-- .container -->
+	</section><!-- #license -->
 <!-- --------------------------------------------------------------------------------------------------------------- -->
-			<div id="credits" class="row">
-				<section class="span12">
+	<section class="content-section" id="credits">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
 					<h2>Credits</h2>
 					<ul>
 						<li>
-							<strong><a href="http://twitter.github.io/bootstrap/" target="_blank" rel="nofollow">Twitter Bootstrap:</a></strong> 
-							This site was coded lightning-fast thanks to Bootstrap.
+							<strong><a href="http://www.getbootstrap.com/" target="_blank" rel="nofollow">Twitter Bootstrap:</a></strong> 
+							This site was coded lightning-fast thanks to Bootstrap. Consider using it on your projects. It's awesome! 
 						</li>
 						<li>
 							<strong><a href="http://glyphicons.com/" target="_blank" rel="nofollow">Glyphicons:</a></strong> 
-							We use awesome icons thanks to Glyphicons.
+							We use awesome icons thanks to Glyphicons. You're free to use they're icons as part of the Bootstrap framework. :)
 						</li>
 						<li>
 							<strong><a href="http://stackoverflow.com/" target="_blank" rel="nofollow">StackOverflow:</a></strong> 
-							I don`t know what I would do without StackOverflow.
+							I don't know what I would do without StackOverflow. Believe me: no programmer would. 
 						</li>
 					</ul>
-				</section>
+				</div><!-- .col -->
 			</div><!-- .row -->
 		</div><!-- .container -->
+	</section><!-- #credits -->
 <!-- --------------------------------------------------------------------------------------------------------------- -->
-		<footer class="navbar navbar-fixed-bottom">
-			<nav class="navbar-inner">
-				<div class="container">
-					<div class="row row-nav">
-						<div class="span12">
-							<ul class="nav pull-right">
-								<li><a href="http://www.workster.com.br" target="_blank">dev@workster</a></li>
-							</ul>
-						</div><!-- .span12 -->
-					</div><!-- .row -->
-				</div><!-- .container -->
-			</nav><!-- navbar-inner -->
-		</footer>
-	</body>
+	<section class="content-section" id="discussion">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<h2>Discussion</h2>
+					<script type="text/javascript">
+				        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+				        var disqus_shortname = 'coderamonkayocom'; // required: replace example with your forum shortname
+				
+				        /* * * DON'T EDIT BELOW THIS LINE * * */
+				        (function() {
+				            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+				        })();
+				    </script>
+				    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+				    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+				</div><!-- .col -->
+			</div><!-- .row -->
+		</div><!-- .container -->
+	</section><!-- #discussion -->
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+</body>
 </html>

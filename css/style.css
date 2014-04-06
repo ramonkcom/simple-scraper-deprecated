@@ -1,35 +1,54 @@
+/*----------------------------------------------------------------------------*/
+/* Mark-up
+/*----------------------------------------------------------------------------*/
+html, body { 
+	height: 100%;
+	margin:0; 
+	padding: 0;
+}
 body {
-	padding-top: 70px;
-	padding-bottom: 70px;
+	/* background: url('../img/bg.png'); */
+	background: #fff;
+	padding-top: 50px;
 }
-h2 {
-	margin-bottom: 20px;
-}
-h3 {
-	color: #aaa;
-	font-size: 18px;
-}
-.row {
-	padding: 20px 0px;
-	border-bottom: 1px solid #eee;
-}
-.row-nav {
-	padding: 0px 0px;
-	border: none;	
-}
-.hero-unit {
+/*----------------------------------------------------------------------------*/
+/* Modifiers
+/*----------------------------------------------------------------------------*/
+.centered {
 	text-align: center;
 }
-.hero-unit h1 {
-	margin-bottom: 20px;
+/*----------------------------------------------------------------------------*/
+/* Components
+/*----------------------------------------------------------------------------*/
+.api {
+	margin-top: 20px;
 }
-.hero-unit p {
-	margin-bottom: 20px;
+.api dt code {
+	font-size: 1.2em;
 }
-#scraped {
+.api dd {
+	border-bottom: 1px solid #eee;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+}
+.api dd:last-of-type {
+	border-bottom: none;
+}
+.content-section {
+	border-bottom: 1px dashed #ccc;
+	padding: 40px 0px;
+}
+#home {
+	padding-top: 20px;
+}
+#scraped-content {
+	margin-top: 20px;
 	overflow: hidden;
 }
-#image-wrap {
+#scraped-content-image {
+	max-width: 110px
+}
+#scraped-content-image-wrap {
 	float: left;
 	height: 110px;
 	margin: 0;
@@ -37,24 +56,28 @@ h3 {
 	overflow: hidden;
 	width: 110px;
 }
-#image {
-	max-width: 110px
+.social {
+	background: url('../img/bg.png');
+	text-align: center;
 }
-dl.code dt {
-	margin-bottom: 10px;
+.social-facebook {
+	position: relative;
+	top: -5px;
 }
-dl.code dt code {
-	color: #666;
-	font-size: 16px;
+.social-title {
+	display: inline-block;
+	margin: 0;
+	margin-right: 20px;
 }
-dl.code dd {
-	border-bottom: 1px solid #eee;
-	margin-bottom: 20px;
-	padding-bottom: 20px;
+#variables-content {
+	margin-top: 20px;
 }
-dl.code dd:last-of-type {
-	border-bottom: none;
+/*----------------------------------------------------------------------------*/
+/* Media Query
+/*----------------------------------------------------------------------------*/
+@media (min-width: 768px) {
 }
-dl.code dd code {
-	color: #333;
+@media (min-width: 992px) {
+}
+@media (min-width: 1200px) {
 }

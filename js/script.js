@@ -8,23 +8,24 @@ $(function(){
 				'doscrape.php',
 				{'url' : url},
 				function(json) {
+					console.log(json);
 					if (json.success) {
 						if ($.trim(json.ogp.title) != '') {
 							$('#scraped-content').fadeOut('slow', function(){
-								$('#title').text(json.ogp.title);
-								$('#title').attr('href', json.ogp.url);
-								$('#description').text(json.ogp.description);
-								$('#image').attr('src', json.ogp.image);
-								$('#dump').text(json.dump);
+								$('#scraped-content-title').text(json.ogp.title);
+								$('#scraped-content-title').attr('href', json.ogp.url);
+								$('#scraped-content-description').text(json.ogp.description);
+								$('#scraped-content-image').attr('src', json.ogp.image);
+								$('#variables-content').text(json.dump);
 								$('#scraped-content').fadeIn();
 							});
 						} else {
 							$('#scraped-content').fadeOut('slow', function(){
-								$('#title').text('Title will appear here...');
-								$('#title').attr('href', 'javascript:void(0)');
-								$('#description').text('... and description here');
-								$('#image').attr('src', 'img/image.jpg');
-								$('#dump').text(json.dump);
+								$('#scraped-content-title').text('Title will appear here...');
+								$('#scraped-content-title').attr('href', 'javascript:void(0)');
+								$('#scraped-content-description').text('... and description here');
+								$('#scraped-content-image').attr('src', 'img/example.jpg');
+								$('#variables-content').text(json.dump);
 								$('#scraped-content').fadeIn();
 							});
 						}
@@ -43,18 +44,15 @@ $(function(){
 		return false;
 	});
 	
-	$('.navscroll a').click(function(event){
-		var $anchor = $(this);
- 
+	$('.main-nav-link, .navbar-brand').click(function(event){
+		var anchor = $(this);
         $('html, body').stop().animate({
-            scrollTop: $($anchor.attr('href')).offset().top - 40
+            scrollTop: $(anchor.attr('href')).offset().top - 50
         }, 1500,'easeInOutExpo');
-        /*
-        if you don't want to use the easing effects:
-        $('html, body').stop().animate({
-            scrollTop: $($anchor.attr('href')).offset().top
-        }, 1000);
-        */
+        
+        $('.navbar-collapse').removeClass('in');
+        $('.main-nav li').removeClass('active');
+        anchor.parent().addClass('active');
         return false;
     });
 });
