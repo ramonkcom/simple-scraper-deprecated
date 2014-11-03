@@ -75,7 +75,7 @@ $description = "Simple Scraper is a PHP class to scrape Open Graph Protocol and 
 <!DOCTYPE html>
 <html lang="en-US" xmlns:fb="http://ogp.me/ns/fb#">
 <head>
-	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+	<link rel="shortcut icon" type="image/png” href="favicon.png”>
 	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
 	<link rel="canonical" href="http://code.ramonkayo.com/simple-scraper/" />
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
