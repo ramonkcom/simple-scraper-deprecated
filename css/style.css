@@ -38,6 +38,9 @@ body {
 	border-bottom: 1px dashed #ccc;
 	padding: 40px 0px;
 }
+#credits {
+	border: 0;
+}
 #cta {
 	background: url('../img/white-paper.png');
 }
@@ -49,6 +52,10 @@ body {
 }
 #home {
 	padding-top: 20px;
+}
+#logo {
+	background: #333;
+	padding: 40px 0;
 }
 #scraped-content {
 	margin-top: 20px;

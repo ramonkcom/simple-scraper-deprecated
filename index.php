@@ -75,19 +75,34 @@ $description = "Simple Scraper is a PHP class to scrape Open Graph Protocol and 
 <!DOCTYPE html>
 <html lang="en-US" xmlns:fb="http://ogp.me/ns/fb#">
 <head>
-	<link rel="shortcut icon" type="image/png” href="favicon.png”>
-	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
 	<link rel="canonical" href="http://code.ramonkayo.com/simple-scraper/" />
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
-	<link rel="stylesheet" type="text/css" href="css/style.css"/>
-	<script type="text/javascript" src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/jquery.easing.js"></script>
-	<script type="text/javascript" src="js/script.js"></script>
+
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<meta name="description" content="<?php echo $description ?>">
 	<meta name="keywords" content="scrape, scraper, simple scraper, facebook scrape, twitter scrape, microdata, metadata, meta, plugin, php">
+	
+	<link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/icons/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180x180.png">
+	<link rel="icon" type="image/png" href="/icons/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="/icons/favicon-194x194.png" sizes="194x194">
+	<link rel="icon" type="image/png" href="/icons/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="/icons/android-chrome-192x192.png" sizes="192x192">
+	<link rel="icon" type="image/png" href="/icons/favicon-16x16.png" sizes="16x16">
+	<link rel="manifest" href="/icons/manifest.json">
+	<link rel="shortcut icon" href="/icons/favicon.ico">
+	<meta name="msapplication-TileColor" content="#000000">
+	<meta name="msapplication-TileImage" content="/icons/mstile-144x144.png">
+	<meta name="msapplication-config" content="/icons/browserconfig.xml">
+	<meta name="theme-color" content="#ffffff">
+	
 	<meta property="fb:profile_id" content="100006394837452"/> 
 	<meta property="og:url" content="http://code.ramonkayo.com/simple-scraper/" />
 	<meta property="og:site_name" content="<?php echo $title ?>" />
@@ -95,16 +110,30 @@ $description = "Simple Scraper is a PHP class to scrape Open Graph Protocol and 
 	<meta property="og:article:author" content="http://www.facebook.com/ramonztro"/> 
 	<meta property="og:title" content="<?php echo $title ?>" />
 	<meta property="og:description" content="<?php echo $description ?>" />
-	<meta property="og:image" content="http://code.ramonkayo.com/simple-scraper/img/ramonkayo_scrape.jpg" />
+	<meta property="og:image" content="http://code.ramonkayo.com/simple-scraper/img/scrape.jpg" />
+	
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<link rel="stylesheet" type="text/css" href="css/rmn.css"/>
+	
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easing.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+
 	<title><?php echo $title ?></title>
 </head>
 <body>
-	<script>(function(d, s, id) {
-		var js, fjs = d.getElementsByTagName(s)[0];
-		if (d.getElementById(id)) return;
-			js = d.createElement(s); js.id = id;
-			js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=551918161560361";
-			fjs.parentNode.insertBefore(js, fjs);
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+	<div id="fb-root"></div>
+	<script>
+		(function(d, s, id) {
+  			var js, fjs = d.getElementsByTagName(s)[0];
+  			if (d.getElementById(id)) return;
+  			js = d.createElement(s); js.id = id;
+  			js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=551918161560361&version=v2.0";
+  			fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));
 	</script>
 <!-- --------------------------------------------------------------------------------------------------------------- -->
@@ -157,10 +186,10 @@ $description = "Simple Scraper is a PHP class to scrape Open Graph Protocol and 
 				<div class="col-xs-12 col-sm-6">
 					<h2>Intro</h2>
 					<p>
-						Wether you're building a crawler tool or a simple post system, you'll probably need this class.
+						Wether you're building a crawler tool or a simple scraper system, you'll probably need this class.
 					</p>
 					<p>
-						You know when you paste a link on a Facebook status, then Facebook sums the content up into a box
+						You know when you paste a link on a Facebook status and Facebook sums the content up into a box
 						containing an image, a title and a description? 
 						Simple scraper helps you to do exactly that.
 					</p>
@@ -178,7 +207,7 @@ $description = "Simple Scraper is a PHP class to scrape Open Graph Protocol and 
 					<h2>About</h2>
 					<p>
 						This is an open source project and it is licensed under the terms of MIT License.
-						Feel free to adapt and redistribute - as long as you don't make commercial use of it.
+						Feel free to adapt, redistribute or use in your commercial projects - just don't sell it, ok?
 					</p>
 					<p>
 						You can contribute to the project by warning me about bugs or
@@ -195,27 +224,6 @@ $description = "Simple Scraper is a PHP class to scrape Open Graph Protocol and 
 			</div><!-- .row -->
 		</div><!-- .container -->
 	</section><!-- #home -->
-<!-- --------------------------------------------------------------------------------------------------------------- -->
-	<section class="content-section" id="social">
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-12">
-					<h2 id="social-title">Recommend it:</h2>
-					<span class="social-item social-facebook">
-						<fb:like href="http://code.ramonkayo.com/simple-scraper/" layout="button_count" action="like" show_faces="false" share="false"></fb:like>
-					</span><!-- .social-facebook -->
-					<span class="social-item social-twitter">
-						<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://code.ramonkayo.com/simple-scraper/" data-text="Thanks @ramonztro for Simple Scraper!" data-lang="en">Tweetar</a>
-						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-					</span><!-- .social-twitter -->
-					<span class="social-item social-plus">
-						<div class="g-plusone" data-size="medium" data-annotation="none" data-href="http://code.ramonkayo.com/simple-scraper/"></div>
-						<script type="text/javascript">window.___gcfg = {lang: 'pt-BR'};(function() {var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true; po.src = 'https://apis.google.com/js/platform.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);})();</script>
-					</span><!-- .social-plus -->
-				</div><!-- .col -->
-			</div><!-- .row -->
-		</div><!-- .container -->
-	</section><!-- #social -->
 <!-- --------------------------------------------------------------------------------------------------------------- -->
 	<section class="content-section" id="demo">
 		<div class="container">
@@ -338,11 +346,22 @@ $description = "Simple Scraper is a PHP class to scrape Open Graph Protocol and 
 		</div><!-- .container -->
 	</section><!-- #api -->
 <!-- --------------------------------------------------------------------------------------------------------------- -->
-	<section class="content-section" id="cta">
+	<section class="content-section" id="social">
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-12 centered">
-					<a href="#social" id="cta-button" class="btn btn-lg btn-info"><span class="glyphicon glyphicon-thumbs-up"></span> Like it?</a>
+				<div class="col-xs-12">
+					<h2 id="social-title">Recommend it:</h2>
+					<span class="social-item social-facebook">
+						<div class="fb-like" data-href="http://code.ramonkayo.com/simple-scraper/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+					</span><!-- .social-facebook -->
+					<span class="social-item social-twitter">
+						<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://code.ramonkayo.com/simple-scraper/" data-text="Thanks @ramonztro for Simple Scraper!" data-lang="en">Tweetar</a>
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+					</span><!-- .social-twitter -->
+					<span class="social-item social-plus">
+						<div class="g-plusone" data-size="medium" data-annotation="none" data-href="http://code.ramonkayo.com/simple-scraper/"></div>
+						<script type="text/javascript">window.___gcfg = {lang: 'pt-BR'};(function() {var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true; po.src = 'https://apis.google.com/js/platform.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);})();</script>
+					</span><!-- .social-plus -->
 				</div><!-- .col -->
 			</div><!-- .row -->
 		</div><!-- .container -->
@@ -406,6 +425,29 @@ $description = "Simple Scraper is a PHP class to scrape Open Graph Protocol and 
 			</div><!-- .row -->
 		</div><!-- .container -->
 	</section><!-- #credits -->
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+	<section id="logo">
+		<div id="rmn" class="inverse">
+			<a id="rmn-link" href="http://ramonkayo.com" title="Ramon Kayo" target="_blank">
+				<div id="rmn-r" class="rmn-char">
+					<div id="rmn-r-1"></div>
+					<div id="rmn-r-2"></div>
+					<div id="rmn-r-3"></div>
+				</div><!-- #rmn-r -->
+				<div id="rmn-m" class="rmn-char">
+					<div id="rmn-m-1"></div>
+					<div id="rmn-m-2"></div>
+					<div id="rmn-m-3"></div>
+					<div id="rmn-m-4"></div>
+				</div><!-- #rmn-m -->
+				<div id="rmn-n" class="rmn-char">
+					<div id="rmn-n-1"></div>
+					<div id="rmn-n-2"></div>
+					<div id="rmn-n-3"></div>
+				</div><!-- #rmn-n -->
+			</a>
+		</div>
+	</section>
 <!-- --------------------------------------------------------------------------------------------------------------- -->
 	<section class="content-section" id="discussion">
 		<div class="container">

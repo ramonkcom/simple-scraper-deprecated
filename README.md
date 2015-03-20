@@ -2,7 +2,7 @@ Simple Scraper (SimpleScraper.class.php)
 ==========================================
 **For documentation, please visit:** http://code.ramonkayo.com/simple-scraper/
 
-Copyright (c) 2013-2014 Ramon Kayo                                                
+Copyright (c) 2013-2015 Ramon Kayo                                                
 -----------------------------
                                                                              
 Permission is hereby granted, free of charge, to any person obtaining a
