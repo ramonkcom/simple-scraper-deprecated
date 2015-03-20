@@ -69,7 +69,7 @@ $php = '
 	';
 
 $title = "Simple Scraper by Ramon Kayo";
-$description = "Simple Scraper is a PHP class to scrape Open Graph Protocol and other micro/meta data.";
+$description = "A PHP class to fetch Open Graph Protocol data, Twitter Card data and/or meta tags data.";
 
 ?>
 <!DOCTYPE html>
@@ -172,10 +172,7 @@ $description = "Simple Scraper is a PHP class to scrape Open Graph Protocol and 
 				<div class="col-xs-12">
 					<header id="heroshot" class="jumbotron centered">
 						<h1>Simple Scraper</h1>
-						<p>
-							A PHP class to fetch Open Graph Protocol data,
-							Twitter Card data and/or meta tags data.
-						</p>
+						<p><?php echo $description ?></p>
 						<a href="https://github.com/ramonkayo/simple-scraper" target="_blank" class="btn btn-lg btn-success">
 							<span class="glyphicon glyphicon-cloud-download"></span> Download from GitHub
 						</a>
@@ -186,7 +183,7 @@ $description = "Simple Scraper is a PHP class to scrape Open Graph Protocol and 
 				<div class="col-xs-12 col-sm-6">
 					<h2>Intro</h2>
 					<p>
-						Wether you're building a crawler tool or a simple scraper system, you'll probably need this class.
+						Wether you're building a crawler tool or a simple scraper system, you'll probably need Simple Scraper.
 					</p>
 					<p>
 						You know when you paste a link on a Facebook status and Facebook sums the content up into a box

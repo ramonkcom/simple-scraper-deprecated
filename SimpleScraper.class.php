@@ -1,19 +1,20 @@
 <?php
 /*
-+---------------------------------------------------------------------------+
-| SimpleScraper.class.php                                                   |
-| Copyright (c) 2013, Ramon Kayo                                            |
-+---------------------------------------------------------------------------+
-| Author        : Ramon Kayo                                                |
-| Email         : ramaismon@gmail.com                                       |
-| License       : Distributed under the MIT License                         |
-| Full license  : http://www.workster.com.br/simple-scraper/license.txt     |
-+---------------------------------------------------------------------------+
-| "Have the courage to follow your heart and intuition."                    |
-+---------------------------------------------------------------------------+
-| Last modified : 16/April/2013                                             |
-+---------------------------------------------------------------------------+
-*/
+ +---------------------------------------------------------------------------+
+ | Simple Scraper (SimpleScraper.class.php )                                 |
+ | Copyright (c) 2013-2015, Ramon Kayo                                       |
+ +---------------------------------------------------------------------------+
+ | Author        : Ramon Kayo                                                |
+ | Email         : contato@ramonkayo.com                                     |
+ | License       : Distributed under the MIT License                         |
+ | Full license  : http://code.ramonkayo.com/simple-scraper/license.txt      |
+ +---------------------------------------------------------------------------+
+ | "Simplicity is the ultimate sophistication." - Leonardo Da Vinci          |
+ +---------------------------------------------------------------------------+
+ | Last modified : 2015-03-20                                                |
+ +---------------------------------------------------------------------------+
+ */
+use \Exception;
 
 class SimpleScraper {
 	
@@ -39,11 +40,11 @@ class SimpleScraper {
 			'meta' => array()
 		);
 		
-		$urlPattern = '/\(?\b(?:(http|https|ftp):\/\/)?((?:www.)?[a-zA-Z0-9\-\.]+[\.][a-zA-Z]{2,4}|localhost(?=\/)|\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})(?::(\d*))?(?=[\s\/,\.\)])([\/]{1}[^\s\?]*[\/]{1})*(?:\/?([^\s\n\?\[\]\{\}\#]*(?:(?=\.)){1}|[^\s\n\?\[\]\{\}\.\#]*)?([\.]{1}[^\s\?\#]*)?)?(?:\?{1}([^\s\n\#\[\]\(\)]*))?([\#][^\s\n]*)?\)?/';
+		$urlPattern = '~^(?:(?:https?|ftp)://)(?:\S+(?::\S*)?@)?(?:(?!10(?:\.\d{1,3}){3})(?!127(?:\.\d{1,3}){3})(?!169\.254(?:\.\d{1,3}){2})(?!192\.168(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\x{00a1}-\x{ffff}0-9]+-?)*[a-z\x{00a1}-\x{ffff}0-9]+)(?:\.(?:[a-z\x{00a1}-\x{ffff}0-9]+-?)*[a-z\x{00a1}-\x{ffff}0-9]+)*(?:\.(?:[a-z\x{00a1}-\x{ffff}]{2,})))(?::\d{2,5})?(?:/[^\s]*)?$~iu';
 		if (!is_string($url))
-			throw new Exception("Argument 'url' is invalid. Not a string.");
+			throw new InvalidArgumentException(I18n::text("Argument 'url' is invalid (not a string)."));
 		if (!(preg_match($urlPattern, $url)))
-			throw new Exception("Argument 'url' is invalid. Not a URL.");
+			throw new InvalidArgumentException(I18n::text("Argument 'url' is invalid."));
 		$this->url = $url;
 		
 		$this->fetchResource();
@@ -74,22 +75,13 @@ class SimpleScraper {
 				$this->data['meta'][$attrArray['name']] = $attrArray['content'];
 			}
 		}
-		
 	}
 	
 /*===========================================================================*/
 // PUBLIC METHODS
 /*===========================================================================*/
 	/**
-	 * 
-	 * @return string
-	 */
-	public function getContentType() {
-		return $this->contentType;
-	}
-	
-	/**
-	 * 
+	 *
 	 * @return array
 	 */
 	public function getAllData() {
@@ -97,13 +89,21 @@ class SimpleScraper {
 	}
 	
 	/**
-	 * 
+	 *
 	 * @return string
 	 */
 	public function getContent() {
 		return $this->content;
 	}
 	
+	/**
+	 * 
+	 * @return string
+	 */
+	public function getContentType() {
+		return $this->contentType;
+	}
+
 	/**
 	 *
 	 * @return string
@@ -141,7 +141,7 @@ class SimpleScraper {
 /*===========================================================================*/
 	private function fetchResource() {
 		$ch = curl_init();
-		curl_setopt($ch,CURLOPT_USERAGENT,'Mozilla/5.0 (compatible; SimpleScraper)');
+		curl_setopt($ch,CURLOPT_USERAGENT,'Mozilla/5.0 (compatible; ' . TITLE . '/' . HOST . ')');
 		curl_setopt($ch, CURLOPT_URL, $this->url);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
@@ -157,5 +157,5 @@ class SimpleScraper {
 		if (((int) $this->httpCode) >= 400) {
 			throw new Exception('STATUS CODE: ' . $this->httpCode);
 		}
-	}	
+	}
 }
