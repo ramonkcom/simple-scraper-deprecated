@@ -73,7 +73,7 @@ $description = "A PHP class to fetch Open Graph Protocol data, Twitter Card data
 
 ?>
 <!DOCTYPE html>
-<html lang="en-US" xmlns:fb="http://ogp.me/ns/fb#">
+<html lang="en-US">
 <head>
 	<link rel="canonical" href="http://code.ramonkayo.com/simple-scraper/" />
 
