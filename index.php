@@ -173,7 +173,7 @@ $description = "A PHP class to fetch Open Graph Protocol data, Twitter Card data
 					<header id="heroshot" class="jumbotron centered">
 						<h1>Simple Scraper</h1>
 						<p><?php echo $description ?></p>
-						<a href="https://github.com/ramonkayo/simple-scraper" target="_blank" class="btn btn-lg btn-success">
+						<a href="https://github.com/ramonztro/simple-scraper" target="_blank" class="btn btn-lg btn-success">
 							<span class="glyphicon glyphicon-cloud-download"></span> Download from GitHub
 						</a>
 					</header>
