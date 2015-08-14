@@ -1,0 +1,15 @@
+{
+  "name": "ramonztro/simple-scraper",
+  "description": "A PHP class to fetch Open Graph Protocol data, Twitter Card data and/or meta tags data.",
+  "keywords": ["media", "embed"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ramon Kayo",
+      "email": "contato@ramonkayo.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4"
+  }
+}
